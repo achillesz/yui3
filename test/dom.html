@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Á·Ï°Áù</title>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+</head>
+<body>
+<div id="demo"><span>2</span></div>
+<script type="text/javascript">
+    YUI().use('node',function(Y){
+        Y.one('#demo').setHTML(Y.one('#demo').get('id'));
+    });
+
+</script>
+</body>
+</html>

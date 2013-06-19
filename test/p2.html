@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Á·Ï°Ò»</title>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+    <!--http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js-->
+</head>
+<body>
+<div id="demo"></div>
+<script type="text/javascript">
+    var Y = YUI();
+    Y.use('node','json-stringify',function(Y,loaderResponse){
+        var pre = Y.one('#demo');
+        pre.set('text', Y.JSON.stringify(loaderResponse,null,4));
+
+    });
+</script>
+</body>
+</html>

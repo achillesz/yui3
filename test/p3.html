@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Á·Ï°Èý</title>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+    <!--http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js-->
+</head>
+<body>
+<div id="demo" class="yui3-skin-night"></div>
+<script type="text/javascript">
+    YUI({
+        skin:{defaultSkin:"night"},
+        combine: true
+    }).use('calendar',function(Y){
+                new Y.Calendar({width:300}).render('#demo');
+            });
+</script>
+</body>
+</html>

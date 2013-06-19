@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Á·Ï°Áù</title>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+</head>
+<body>
+<div id="demo"></div>
+<script type="text/javascript">
+    YUI.add('Hello',function(Y){
+        Y.namespace('Hello');
+        Y.Hello.sayHello = function(){
+            return "GREETINGS PROGRAMS";
+        }
+    });
+    YUI().use('node-base','Hello',function(Y){
+        Y.one('#demo').setHTML(Y.Hello.sayHello());
+    });
+</script>
+</body>
+</html>
