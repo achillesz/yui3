@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>вўВидЊЫи</title>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+    <style type="text/css">
+        #demo{  border:1px #000 solid; background-color:#d72; position:absolute;}
+    </style>
+</head>
+<body>
+<button id="hide">Hide</button><button id="show">Show</button>
+<div id="demo"></div>
+<script type="text/javascript">
+    YUI().use('node','transition',function(Y){
+        var demo  = Y.one('#demo');
+        demo.transition({
+            duration:2.5,
+            width:'100px',
+            height:'100px',
+            left:{
+                easing:'ease-in',
+                value:'500px'
+            },
+            opacity:{
+                delay:1.0,
+                duration:1.75,
+                value:1.0
+            },
+            on:{
+                start:function(){
+                    demo.setHTML("It's just a jump to the left...");
+                },
+                end:function(){
+                    demo.setHTML('And the a step to the riiight!');
+                    demo.transition({
+                        duration:2.0,
+                        left:'0px',
+                        easing:"linear"
+                    });
+                }
+            }
+        })
+    });
+</script>
+</body>
+</html>

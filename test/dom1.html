@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dom1</title>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+</head>
+<body>
+<div id="demo"></div>
+<script type="text/javascript">
+    YUI().use('node',function(Y){
+        var heading = Y.Node.create("<h1>Don't Forget the Heading!</h1>");
+        heading.appendTo('#demo');
+    })
+</script>
+</body>
+</html>

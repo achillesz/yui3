@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>вўВидЊЫи</title>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+    <style type="text/css">
+       p{ font-family:courier; color:#333;}
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<script type="text/javascript">
+YUI().use('dom-core','node',function(Y){
+    var lastParaId;
+
+    function addContent(numParas){
+        var i, content = '',
+                para = '<p>All work and no play makes Jack a dull boy.</p>';
+        for(var i = 0; i < numParas; i += 1){
+            content += para;
+        }
+        Y.one('#demo').append(content);
+        return Y.one('#demo p:last-child').generateID();
+    }
+
+    function fillToBelowViewport(){
+        var lastPara = Y.one('#' + lastParaId).getDOMNode();
+        if(Y.DOM.inViewportRegion(lastPara)){
+            lastParaId = addContent(10);
+        }
+    }
+    Y.on('scroll',fillToBelowViewport);
+    lastParaId = addContent(20);
+    fillToBelowViewport();
+})
+</script>
+</body>
+</html>

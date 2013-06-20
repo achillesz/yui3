@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>мов╖</title>
+    <style type="text/css">
+        #demo{ width:100px; height:100px; border:1px solid #000; background-color:#d72;}
+    </style>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+</head>
+<body>
+<div id="demo"></div>
+<script type="text/javascript">
+    YUI().use('dd-drag',function(Y){
+        var dd = new Y.DD.Drag({
+            node:"#demo"
+        });
+    });
+</script>
+</body>
+</html>
