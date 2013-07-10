@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ÊÂ¼þ</title>
+    <style type="text/css">
+        div{border:1px solid #000; background:#a22; height:100px; width:100px;}
+        .over{ background:#2a2;}
+    </style>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+</head>
+<body>
+<div id="demo"></div>
+<script type="text/javascript">
+    YUI().use('node-base',function(Y){
+        Y.one('#demo').on('mouseover',function(ev){
+            debugger;
+            ev.target.addClass('over')
+        });
+        Y.one('#demo').on('mouseout',function(ev){
+            ev.target.removeClass('over')
+        });
+    });
+</script>
+</body>
+</html>

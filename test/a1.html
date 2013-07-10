@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ÊÂ¼þ</title>
+    <style type="text/css">
+        h1{ font:bold 300px 'tahoma','sans-serif'; text-align:center; margin:0;}
+        p{ font:13px 'tahoma','sans-serif'; text-align:center; color:#444;}
+        .NO{color:red;}
+        .YES{ color:green;}
+
+    </style>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+</head>
+<body>
+<div id="guilty"></div>
+<div id="comment"></div>
+<script type="text/javascript">
+    YUI().use('io-base','node-base','json-parse',function(Y){
+        function showAnswer(answer){
+            Y.one('#guilty').setHTML(answer.guilty).addClass(answer.guilty);
+            Y.one('#comment').setHTML(answer.comment);
+        }
+        Y.io('io.php',{
+            data:"suspect=butler",
+            on:{
+                complete:function(id,response){
+                    if(response.status >= 200 && response.status < 300){
+                        showAnswer(Y.JSON.parse(response.responseText));
+                    }
+                    else{
+                        showAnswer({
+                            guilty:"NO",
+                            comment:"Something terrible has happened"
+                        })
+                    }
+                }
+            }
+        })
+    });
+</script>
+</body>
+</html>

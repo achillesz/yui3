@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ÊÂ¼þ</title>
+    <style type="text/css">
+    </style>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+</head>
+<body>
+<div id="i-want-candy">
+    <ul id="candy-filter">
+        <li class="veggie">Broccoli</li>
+        <li class="candy">Chocolate Bar</li>
+        <li class="veggie">Eggplant</li>
+        <li class="candy">Lollipops</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    YUI().use('node-base',function(Y){
+        Y.one('#candy-filter').on('click',function(ev){
+            if(!ev.target.hasClass('candy')){
+                ev.stopPropagation();
+            }
+        })
+        Y.one('#i-want-candy').on('click',function(ev){
+            Y.one('body').append('<b>Yum!</b>');
+        });
+    });
+</script>
+</body>
+</html>

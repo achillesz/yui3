@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    Function.prototype.method = function(name,func){
+        if(!this.prototype[name]){
+            this.prototype[name] = func;
+            return this;
+        }
+    };
+    String.method('trim',function(){
+        return this.replace(/^\s+ | \s+$/g,'');
+    });
+    Number.method('integer',function(){
+        return Math[this < 0 ? 'ceil' : 'floor'](this);
+    });
+    Array.method('uniq',function(){
+            var o = {},a=[], i,j;
+            for (i = 0; i < this.length; i++) {
+                o[this[i]] = true;
+            }
+            for (j in o) {
+                if (o.hasOwnProperty(j)) { // YUIµÄ·½·¨
+                    a.push(j);
+                }
+            }
+        return a;
+    });
+    util = {
+        addHandler: function(element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            }
+            else if (element.attachEvent) {
+                element['e' + type + handler] = handler;
+                element[type + handler] = function(){
+                    element['e' + type + handler](window.event);
+                };
+                element.attachEvent('on' + type,element[type + handler]);
+            }
+            else {
+                element['on' + type] = handler;
+            }
+        },
+        removeHandler: function(element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            }
+            else if (element.detachEvent) {
+                element.detachEvent('on' + type, element[type + handler]);
+            }
+            else {
+                element['on' + type] = null;
+            }
+        }
+    }
+</script>
+<div id="abc">1111</div>
+<script type="text/javascript">
+    var o1 = document.getElementById('abc');
+    function f1(){
+        alert(this.nodeName)
+    }
+    util.addHandler(o1,'click',f1);
+    util.removeHandler(o1,'click',f1);
+</script>
+</body>
+</html>
